@@ -1,0 +1,27 @@
+<!-- <router-outlet/> -->
+
+@defer {
+  <div class="grid">
+    @for (item of results; track item.name) {
+    <div class="card">
+      <div class="header">
+        <h3>{{item.name}}</h3>
+      </div>
+      <div class="body">
+        <img class="img" src="{{item.image}}" alt="">
+      </div>
+      <div class="footer">
+        <a class="footer-details" [routerLink]="['details/' + item.id]">
+            Detalles
+        </a>
+      </div>
+    </div>
+    } @empty {
+    <div>No hay tareas</div>
+    }
+  </div>
+} @placeholder (minimum 1s) {
+  <div class="loading">
+    <p>Cargando...</p>
+  </div>
+}

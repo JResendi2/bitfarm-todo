@@ -1,0 +1,71 @@
+
+
+@defer (when (view_checked)) {
+  <div class="container">
+
+    <div class="character-img">
+      <img src="{{character.image}}" alt="">
+    </div>
+
+    <div class="character-details">
+      <div class="character">
+        <p class="label">Name:</p>
+        <p class="value">
+          {{character.name}}
+        </p>
+      </div>
+      <div class="character">
+        <p class="label">Status:</p>
+        <p class="value">
+          {{character.status}}
+        </p>
+      </div>
+      <div class="character">
+        <p class="label">Species:</p>
+        <p class="value">
+          {{character.species}}
+        </p>
+      </div>
+      <div class="character">
+        <p class="label">Type:</p>
+        <p class="value">
+          @if (character.type) {
+            {{character.type}}
+          } @else {
+            Unknown
+          }
+        </p>
+      </div>
+
+      <div class="character">
+        <p class="label">Gender:</p>
+        <p class="value">
+          {{character.gender}}
+        </p>
+      </div>
+
+      <div class="character">
+        <p class="label">Origin:</p>
+        <p class="value">
+          @if (character.origin.name) {
+            {{character.origin.name}}
+          } @else {
+            Unknown
+          }
+        </p>
+      </div>
+
+      <div class="character">
+        <p class="label">Created:</p>
+        <p class="value">
+          {{character.created | date | uppercase}}
+        </p>
+      </div>
+    </div>
+  </div>
+} @placeholder {
+  <div class="loading">
+    <p>Cargando personaje...</p>
+  </div>
+}
+

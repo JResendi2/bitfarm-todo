@@ -1,0 +1,37 @@
+<div class="container-form">
+  <h3>Login</h3>
+  <form class="form" (ngSubmit)="onSubmit()" novalidate [formGroup]="myFormControl" action="">
+
+    <div class="input">
+      <label for="gmail">Gmail:</label>
+
+      <div class="input">
+        <input id="gmail" type="text" formControlName="gmail">
+        <span class="error"
+          *ngIf="myFormControl.get('gmail').invalid && (myFormControl.get('gmail').dirty || myFormControl.get('gmail').touched)">
+          Gmail requerido
+        </span>
+      </div>
+
+    </div>
+    <!-- <div style="color: white;">{{email.value}}</div> -->
+
+    <div class="input">
+        <label for="password">Password:</label>
+      <div class="input">
+        <input id="password" type="text" formControlName="password">
+        <span class="error"
+          *ngIf="myFormControl.get('password').invalid && (myFormControl.get('password').dirty || myFormControl.get('password').touched)">
+          Contraseña requerido
+        </span>
+      </div>
+    </div>
+
+    <div class="form-footer">
+      <button class="btn-submit" type="submit">Ingresar</button>
+    </div>
+  </form>
+  <br>
+
+</div>
+<br>

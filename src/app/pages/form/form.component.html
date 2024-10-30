@@ -1,0 +1,29 @@
+<div class="container-form">
+  <h3>Form sencillo</h3>
+  <form action="">
+    <input type="text" [formControl] = "name">
+    <br>
+    <br>
+    <div style="color: white;">{{name.value}}</div>
+  </form>
+  <br>
+  <div class="error" *ngIf="name.hasError('required')">
+    Nombre requerido
+  </div>
+</div>
+<br>
+
+<div class="container-form">
+  <h3>FormGroup</h3>
+  <form action="">
+    <input type="text" [formControl] = "name">
+    <br>
+    <br>
+    <div style="color: white;">{{name.value}}</div>
+  </form>
+  <br>
+  <div class="error" *ngIf="name.hasError('required')">
+    Nombre requerido
+  </div>
+</div>
+<br>

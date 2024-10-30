@@ -1,0 +1,42 @@
+:host {
+  display: block;
+}
+
+.container{
+  background-color: #3d3f45;
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.character-img img{
+  width: 100%;
+  border-radius: 8px;
+}
+
+.character-details{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.character{
+  display: flex;
+  gap: 1rem;
+}
+
+.character .label{
+  font-weight: 700;
+  color: #db7037;
+}
+
+.character .value{
+  color: white;
+}
+
+.loading{
+  padding: 2rem;
+  background-color: #53cc43;
+  border-radius: 8px;
+}
+

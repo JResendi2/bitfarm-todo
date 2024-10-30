@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+.error{
+  color: red;
+}
+
+.container-form{
+  border: solid gray 2px;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.container-form h3{
+  color: white;
+  margin-top: 0;
+}

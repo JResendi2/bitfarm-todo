@@ -1,0 +1,48 @@
+:host {
+  display: block;
+}
+.error{
+  color: red;
+}
+
+.container-form{
+  border: solid gray 2px;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.container-form h3{
+  color: white;
+  margin-top: 0;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.input{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.input label{
+  color: white;
+  width: 5rem;
+}
+
+.form-footer{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-submit{
+  border: solid gray 1px;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  background-color: #53cc43;
+  font-weight: bold;
+  cursor: pointer;
+}
