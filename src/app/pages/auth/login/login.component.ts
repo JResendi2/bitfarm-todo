@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user/user.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CanActivate, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth/Auth.service';
 
 interface UserAuth {
   gmail: string;
@@ -23,7 +24,7 @@ interface UserAuth {
 export class LoginComponent implements OnInit {
   myFormControl: any;
 
-  constructor(private serviceUser: UserService, private router: Router) { }
+  constructor(private serviceUser: UserService, private serviceAuth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.myFormControl = new FormGroup({
@@ -37,7 +38,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-
     if (this.myFormControl.invalid) {
       if(this.myFormControl.get('gmail').invalid){
         this.myFormControl.get('gmail').touched = true;
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
 
     const user: UserAuth = this.myFormControl.value;
     if (this.serviceUser.existsUser(user)) {
-
+      this.serviceAuth.login();
       this.router.navigate(['/ram']);
     } else {
       alert("Usuario o contraseña incorrectos");

@@ -19,7 +19,7 @@
     <div class="input">
         <label for="password">Password:</label>
       <div class="input">
-        <input id="password" type="text" formControlName="password">
+        <input id="password" type="password" formControlName="password">
         <span class="error"
           *ngIf="myFormControl.get('password').invalid && (myFormControl.get('password').dirty || myFormControl.get('password').touched)">
           Contraseña requerido
