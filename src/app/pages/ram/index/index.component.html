@@ -1,7 +1,7 @@
 <!-- <router-outlet/> -->
 
 @defer {
-  <div class="grid">
+  <div [class]="true? 'grid' : ''">
     @for (item of results; track item.name) {
     <div class="card">
       <div class="header">
@@ -11,13 +11,13 @@
         <img class="img" src="{{item.image}}" alt="">
       </div>
       <div class="footer">
-        <a class="footer-details" [routerLink]="['details/' + item.id]">
+        <a [appLinkButton]="item.id" [routerLink]="['details/' + item.id]" href="#">
             Detalles
         </a>
       </div>
     </div>
     } @empty {
-    <div>No hay tareas</div>
+    <div>Sin datos</div>
     }
   </div>
 } @placeholder (minimum 0.5s) {

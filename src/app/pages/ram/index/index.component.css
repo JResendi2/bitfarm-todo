@@ -33,7 +33,7 @@
 
 .footer-details{
   width: 100% !important;
-  color: white;
+  color: rgb(255, 255, 255);
   text-align: center;
   transition: scale ease 0.3s;
 }

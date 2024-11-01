@@ -5,9 +5,14 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth/Auth.service';
 
-interface UserAuth {
+interface UserLogin {
   gmail: string;
   password: string;
+}
+
+interface UserAuth{
+  gmail: string;
+  permissions: string[];
 }
 
 @Component({
@@ -48,9 +53,14 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    const user: UserAuth = this.myFormControl.value;
+    const user: UserLogin = this.myFormControl.value;
+
     if (this.serviceUser.existsUser(user)) {
-      this.serviceAuth.login();
+
+      const userAuth:UserAuth = this.serviceUser.getUser(user); // obtener los datos del usuario logeado
+
+      this.serviceAuth.login(userAuth); // guardar el usuario logeado
+
       this.router.navigate(['/ram']);
     } else {
       alert("Usuario o contraseña incorrectos");

@@ -1,0 +1,8 @@
+<header class="header" [class]="(switchColor)?'bg-gray': 'bg-red'">
+  <h1 class="header-title">{{'the Rick and Morty' | titlecase}}</h1>
+  @if (isLoggedIn()) {
+   <div class="container-logout">
+     <button (click)="logout()">Cerrar sesión</button>
+   </div>
+  }
+</header>

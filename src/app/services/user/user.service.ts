@@ -5,11 +5,17 @@ interface User {
   name: string;
   gmail: string;
   password: string;
+  permissions: string[];
+}
+
+interface UserLogin{
+  gmail: string;
+  password: string
 }
 
 interface UserAuth{
   gmail: string;
-  password: string;
+  permissions: string[];
 }
 
 @Injectable({
@@ -21,20 +27,22 @@ export class UserService {
     {
       id: 1,
       name: "Jose Resendiz",
-      gmail: "resendiz@gmail.com",
-      password: "1234"
+      gmail: "user1@gmail.com",
+      password: "1234",
+      permissions: ["admin"]
     },
     {
       id: 2,
       name: "Marco",
-      gmail: "resendiz@gmail.com",
-      password: "1234"
+      gmail: "user2@gmail.com",
+      password: "1234",
+      permissions: []
     }
   ]
 
   constructor() { }
 
-  existsUser(userAuth:UserAuth){
+  existsUser(userAuth:UserLogin): boolean{
     const user:User|undefined = this.users.find((user)=>{
       return user.gmail === userAuth.gmail && user.password === userAuth.password;
     });
@@ -43,6 +51,19 @@ export class UserService {
       return true;
     } else {
       return false;
+    }
+  }
+
+  getUser(userLogin:UserLogin): UserAuth {
+    // buscar el usuario
+    const user:User|undefined = this.users.find((user)=>{
+      return user.gmail === userLogin.gmail && user.password === userLogin.password;
+    });
+
+    if(user){
+      return {gmail: user.gmail, permissions: user.permissions};
+    } else {
+      return {gmail: '', permissions: []};
     }
   }
 }

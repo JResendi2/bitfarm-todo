@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.footer{
+  padding: 1rem;
+  text-align: center;
+  background-color: #272b33;
+  position: relative;
+}
+
+.footer-options{
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
